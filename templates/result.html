@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Phishing Website Destection</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="../static/css/freelancer.min.css" rel="stylesheet">
+    <style>
+   #loading {
+   background: url('../static/ajax-loader.gif') no-repeat center center;
+   position: absolute;
+   top: 0;
+   left: 59;
+   height: 100%;
+   width: 86%;
+   z-index: 9999999;
+}
+   </style>
+  
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">PWD</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{url_for('login')}}">Admin</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{url_for('upload')}}">Upload</a>
+          </li>
+		   <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">Preview</a>
+          </li>
+		    <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{url_for('test')}}">Predict</a>
+          </li>
+		   <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">Result</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Contact Section -->
+  <section class="page-section" id="contact">
+    <div class="container">
+     <br>
+	 <br>
+      <!-- Contact Section Heading -->
+      <h2 class="text-center text-uppercase text-secondary mb-0">Predicted Result</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Contact Section Form -->
+      <div class="row" style="margin-left:-350px">
+        <div class="col-lg-8 mx-auto">
+          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            {% if label == 1 %}
+                       
+                      <div><span style="margin-left:750px;color:red"><font size="12"><img style="margin-left:-300px;width:42px;height:42px;" src="../static/img/alert.png" alt="alert">Phishing Website</font></center></div>
+					    <div><img style="margin-left:250px;width:800px;height:500px;" src="../static/img/rocelm.png"</div>
+                               {% elif label == -1 %}
+                        <div><span style="margin-left:750px;color:green"><font size="12"><img style="margin-left:-300px;width:42px;height:42px;" src="../static/img/tick.png" alt="tick">Legitimate Website </font></center></div>
+						    <div><img style="margin-left:250px;width:800px;height:500px;" src="../static/img/rocelm.png"</div>
+						       {% else %}
+							   {{label}}
+                             {% endif %}
+        </div>
+		
+      </div>
+	  	 
+  </section>
+
+
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Punit Jain</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="../static/js/jqBootstrapValidation.js"></script>
+  <script src="../static/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../static/js/freelancer.min.js"></script>
+  
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+   <script type='text/javascript'>
+   
+function hideLoader() {  
+$('#loading').show(0).delay(10000).hide(0,function(){
+     alert("Training finished!");
+	 window.location = "{{url_for('test')}}";
+   });    
+}
+
+
+   </script>
+   
+
+</body>
+
+</html>
